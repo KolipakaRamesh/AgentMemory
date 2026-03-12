@@ -2,7 +2,7 @@
 
 AgentMemory is a production-ready AI Agent Memory System that provides LLMs with a persistent, human-like long-term memory. It enables AI agents to retain facts, preferences, and interaction history across distinct sessions, transforming stateless chats into continuous, personalized relationships.
 
-![AgentMemory Bright UI](brain/4d4fb2c4-decf-4800-ae8d-e76c062118a4/initial_bright_ui_1773308669390.png)
+
 
 ## ✨ Core Features
 
@@ -46,6 +46,17 @@ Connect your repo, set `NEXT_PUBLIC_CONVEX_URL`, and deploy.
 ## 🏗 Architecture
 
 The system uses a **Retrieval-Augmented Generation (RAG)** approach optimized for personal memory:
+
+```mermaid
+graph TD
+    User((User)) <--> NextJS[Next.js App / Client]
+    NextJS <--> Convex[Convex Backend]
+    Convex <--> OpenRouter[OpenRouter / LLM]
+    Convex <--> OpenAI[OpenAI / Embeddings]
+    Convex -- Async --> Extract[Extraction Engine]
+    Extract -- Store --> MemDB[(Memory Store / Vector Index)]
+```
+
 - **Extraction**: Post-chat background task distills facts.
 - **Persistence**: Facts are embedded and indexed.
 - **Retrieval**: Hybrid re-ranking based on similarity, recency, and importance.
