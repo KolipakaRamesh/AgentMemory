@@ -96,7 +96,7 @@ export default function MemoryPage() {
                 {t === "all" ? "All" : t.charAt(0).toUpperCase() + t.slice(1)}
                 {memories && t !== "all" && (
                   <span style={{ marginLeft: 4, opacity: 0.7 }}>
-                    ({memories.filter((m) => m.type === t).length})
+                    ({memories.filter((m: any) => m.type === t).length})
                   </span>
                 )}
                 {memories && t === "all" && (
@@ -126,7 +126,7 @@ export default function MemoryPage() {
                 <p>No memories yet. Start a conversation!</p>
               </div>
             ) : (
-              memories.map((mem) => (
+              memories.map((mem: any) => (
                 <div key={mem._id} className="memory-card">
                   <span className={`memory-type-badge type-${mem.type}`}>
                     {mem.type}

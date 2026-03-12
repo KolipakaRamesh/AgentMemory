@@ -51,7 +51,7 @@ function MessageList({
 
   return (
     <>
-      {messages.map((msg) => (
+      {messages.map((msg: any) => (
         <div key={msg._id} className={`msg-row ${msg.role}`}>
           <div className={`msg-avatar ${msg.role === "assistant" ? "ai" : ""}`}>
             {msg.role === "assistant" ? "🤖" : "👤"}
@@ -102,7 +102,7 @@ function Sidebar({
         {!conversations || conversations.length === 0 ? (
           <p className="no-conversations">No conversations yet</p>
         ) : (
-          conversations.map((c) => (
+          conversations.map((c: any) => (
             <div
               key={c._id}
               className={`conv-item ${c._id === activeConvId ? "active" : ""}`}

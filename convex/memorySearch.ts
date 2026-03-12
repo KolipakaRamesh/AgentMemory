@@ -3,7 +3,7 @@ import { v } from "convex/values";
 import { embedText } from "./lib/embeddings";
 import { api } from "./_generated/api";
 
-export const semanticSearch = action({
+const semanticSearchOptions = {
   args: {
     userId: v.id("users"),
     query: v.string(),
@@ -17,7 +17,7 @@ export const semanticSearch = action({
       )
     ),
   },
-  handler: async (ctx, { userId, query, limit = 5, type }) => {
+  handler: async (ctx: any, { userId, query, limit = 5, type }: any) => {
     const embedding = await embedText(query);
 
     const results = await ctx.vectorSearch("memoryEntries", "by_embedding", {
@@ -56,4 +56,6 @@ export const semanticSearch = action({
 
     return filtered;
   },
-});
+};
+
+export const semanticSearch = action(semanticSearchOptions);

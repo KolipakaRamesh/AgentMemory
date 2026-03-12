@@ -50,6 +50,7 @@ export const chat = action({
       })),
       sessionMessages: session?.contextWindow ?? [],
       userMessage: message,
+      userId,
     });
 
     // 6. Save user message to DB
