@@ -1,5 +1,7 @@
 # 🧠 AgentMemory
 
+[![gitcgr](https://gitcgr.com/badge/KolipakaRamesh/AgentMemory.svg)](https://gitcgr.com/KolipakaRamesh/AgentMemory)
+
 AgentMemory is a production-ready AI Agent Memory System that provides LLMs with a persistent, human-like long-term memory. It enables AI agents to retain facts, preferences, and interaction history across distinct sessions, transforming stateless chats into continuous, personalized relationships.
 
 
